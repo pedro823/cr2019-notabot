@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { API_HOST } from '../Environment';
 import axios from 'axios';
 
 export class CreateMessage extends Component {
@@ -13,7 +14,7 @@ export class CreateMessage extends Component {
       submitted: false,
       errors: null,
     };
-    axios.post('http://localhost:3000/api/captcha/generate')
+    axios.post(`http://${API_HOST}/api/captcha/generate`)
          .then(response => this.setState({
            captcha: response.data
          }));
@@ -29,7 +30,7 @@ export class CreateMessage extends Component {
   handleSubmit = (event) => {
     this.setState({ errors: null })
     const { captcha: { id }, author, message, answer } = this.state
-    axios.post('http://localhost:3000/api/message/create', {
+    axios.post(`http://${API_HOST}/api/message/create`, {
       captchaId: id,
       author,
       message,

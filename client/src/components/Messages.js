@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Messages.css';
+import { API_HOST } from '../Environment';
 
 export class Messages extends Component {
   constructor (props) {
     super(props);
     this.state = { messages: null };
-    axios.get('http://localhost:3000/api/message')
+    axios.get(`http://${API_HOST}/api/message`)
          .then(result => this.setState({ messages: result }));
   }
 
