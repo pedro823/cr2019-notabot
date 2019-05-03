@@ -1,0 +1,35 @@
+.message {
+  color: #333;
+  display:block;
+  overflow-x: hidden;
+  width:100%;
+  padding:2% 5vmin;
+  border-bottom:1px solid #ecf0f1;
+}
+
+.message .message-header {
+  max-width: 30%;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.message p {
+  background-color: #00e34d;
+  padding: 10px 20px;
+  border-radius: 25px;
+  clear: both;
+  font: 400 15px 'Open Sans', sans-serif;
+}
+
+.message p ::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: -2px;
+  right: -56px;
+  width: 26px;
+  height: 20px;
+  border-bottom-left-radius: 10px;
+  -webkit-transform: translate(-30px, -2px);
+  transform: translate(-30px, -2px);
+}
